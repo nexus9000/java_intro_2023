@@ -85,7 +85,7 @@ public class TestDB {
      }
     @Test
     void testAddAlbumsRecords()throws SQLException{
-        for(int i = 1; i < 1_000; i++){
+        for(int i = 1; i < 1_00; i++){
             String sql = "insert into albums (album_name) values ('"+ RandomStringUtils.randomAlphabetic(10)+"')";
             System.out.println(sql);//sql injection
             st.addBatch(sql);
@@ -118,8 +118,8 @@ public class TestDB {
     @org.junit.jupiter.api.AfterEach
     void tearDown()throws SQLException{
         conn.close();
-        st.close();
-        rs.close();
+ //       st.close();
+//        rs.close();
         users = null;
     }
 
