@@ -7,6 +7,13 @@
     <groupId>org.example</groupId>
     <artifactId>JavaIntro</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <repositories>
+        <repository>
+            <id>mvn</id>
+
+            <url>https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -14,11 +21,13 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
-            <version>3.40.1.0</version>
+            <version>3.44.1.0</version>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -36,11 +45,11 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.12</version>
-            <scope>test</scope>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.22.1</version>
         </dependency>
     </dependencies>
     <build>
@@ -72,7 +81,33 @@
                 </dependencies>
 
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.ossindex.maven</groupId>
+                <artifactId>ossindex-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>audit-dependencies</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>audit</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <reportFile>
+                        target/audit-report.json
+                    </reportFile>
+                    <excludeVulnerabilityIds>
+                        <!--Evaluation date
+                         Evaluated by ...
+                         Argumentation .... -->
+                        <exclude>
+                            CVE-2023-6378
+                        </exclude>
+                    </excludeVulnerabilityIds>
+                </configuration>
 
+            </plugin>
         </plugins>
     </build>
     <properties>

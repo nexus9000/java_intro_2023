@@ -2,8 +2,11 @@ package edu.itstep.javaintro.collections;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.HashMap;
@@ -16,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestDB {
     private static final String URL = "jdbc:sqlite:test.db";
+    private static Logger logger = LoggerFactory.getLogger(TestDB.class);
     private Connection conn ;
     private Statement st;
     private PreparedStatement ps;
@@ -41,6 +45,7 @@ public class TestDB {
         boolean isPasswordOK = false;
         if(rs.next())isPasswordOK = true;
         assertTrue(isPasswordOK);
+        logger.info("Password validation is ok");
    }
 
     @Test
@@ -56,6 +61,7 @@ public class TestDB {
                 "id integer primary key  AUTOINCREMENT,"+
                 "user_name text not null UNIQUE,"+
                 "password text not null)";
+
         st.execute(sql);
 
 

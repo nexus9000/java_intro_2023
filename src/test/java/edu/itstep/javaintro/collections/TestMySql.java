@@ -1,15 +1,17 @@
 package edu.itstep.javaintro.collections;
 
-import org.apache.log4j.Logger;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 
 class TestMySql {
     //test purposes only
-    private final static Logger log = Logger.getLogger(TestMySql.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(TestMySql.class);
     private Connection conn;//connection to database
     private Statement st;
 
@@ -21,9 +23,9 @@ class TestMySql {
             String password = "cisco";
             conn = DriverManager.getConnection(url, user, password);
             st = conn.createStatement();
-            log.info("Connection to database is OK!");
+            logger.info("Connection to database is OK!");
         } catch (SQLException sql) {
-            log.error("problem with driver. Not found!");
+            logger.error("problem with driver. Not found!");
             sql.printStackTrace();
         }
     }

@@ -1,0 +1,9 @@
+
+ˆ
+java:S1319 "mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(êŞ—ßıÿÿÿÿ
+W
+java:S1126"AReplace this if-then-else statement by a single return statement.(²Óõ
+A
+java:S1068"&Remove this unused "st" private field.(üó¦Ôıÿÿÿÿ
+?
+java:S1068")Remove this unused "users" private field.(´‰Û¶
