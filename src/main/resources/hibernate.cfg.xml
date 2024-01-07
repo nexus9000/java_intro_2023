@@ -18,6 +18,6 @@
         <property name="format_sql">false</property>
         <property name="use_sql_comments">false</property>
         <property name="hbm2ddl.auto">update</property>
-        <mapping class="edu.itstep.runapp.PersonTest"  />
+        <mapping class="edu.itstep.javaintro.sql.Person"  />
     </session-factory>
 </hibernate-configuration>
