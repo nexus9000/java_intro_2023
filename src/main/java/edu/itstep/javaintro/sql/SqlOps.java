@@ -16,6 +16,7 @@ public class SqlOps {
     public static Connection getConn() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         conn = DriverManager.getConnection(URL);
+
         return conn;
     }
 
@@ -24,6 +25,7 @@ public class SqlOps {
         ps = conn.prepareStatement(sql);
         ps.setString(1, userName);
         ps.setString(2, password);
+
         rs = ps.executeQuery();
         if (rs.next()) return true;
         else return false;

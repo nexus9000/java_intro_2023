@@ -1,4 +1,4 @@
-package edu.itstep.javaintro.collections;
+package edu.itstep.javaintro.sql;
 
 
 import org.junit.jupiter.api.Assertions;

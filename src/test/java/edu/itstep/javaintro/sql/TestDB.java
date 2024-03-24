@@ -1,4 +1,4 @@
-package edu.itstep.javaintro.collections;
+package edu.itstep.javaintro.sql;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
